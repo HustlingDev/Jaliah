@@ -1,133 +1,52 @@
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* =================================
+   TYPEWRITER MESSAGE
+================================= */
 
-const heartsContainer =
-    document.getElementById("hearts");
+const message = `
+I don't know if words will ever be enough
+to explain what you mean to me.
 
-const heartSymbols = [
-    "❤️",
-    "💕",
-    "💖",
-    "💗",
-    "💓",
-    "💞",
-    "💘"
-];
-
-function createHeart() {
-
-    const heart =
-        document.createElement("div");
-
-    heart.className = "heart";
-
-    heart.innerHTML =
-        heartSymbols[
-            Math.floor(
-                Math.random() *
-                heartSymbols.length
-            )
-        ];
-
-    heart.style.left =
-        Math.random() * 100 + "vw";
-
-    heart.style.fontSize =
-        15 + Math.random() * 35 + "px";
-
-    const duration =
-        5 + Math.random() * 7;
-
-    heart.style.animationDuration =
-        duration + "s";
-
-    heartsContainer.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, duration * 1000);
-}
-
-setInterval(createHeart, 400);
-
-
-/* =========================
-   ROSE PETALS
-========================= */
-
-const petalsContainer =
-    document.getElementById("petals");
-
-function createPetal() {
-
-    const petal =
-        document.createElement("div");
-
-    petal.className = "petal";
-
-    petal.style.left =
-        Math.random() * 100 + "vw";
-
-    const duration =
-        6 + Math.random() * 8;
-
-    petal.style.animationDuration =
-        duration + "s";
-
-    petal.style.opacity =
-        .3 + Math.random() * .6;
-
-    petalsContainer.appendChild(petal);
-
-    setTimeout(() => {
-        petal.remove();
-    }, duration * 1000);
-}
-
-setInterval(createPetal, 900);
-
-
-/* =========================
-   TYPEWRITER LOVE MESSAGE
-========================= */
-
-const message =
-`I don't know if words will ever be enough to explain what you mean to me.
-
-But if there is one thing I want you to know, it is this:
+But there is one thing I want you to know:
 
 You are special to me.
 
 Your smile can change my entire day.
-Your presence makes ordinary moments feel beautiful.
+Your presence makes ordinary moments
+feel beautiful.
 
 I don't just love the moments we share.
 I love the person you are.
 
-And whenever I think about who I want beside me,
-my heart keeps choosing you. ❤️`;
+And whenever I think about who I want
+beside me, my heart keeps choosing you. ❤️
+`;
 
-let index = 0;
-
-const typing =
+const typingElement =
     document.getElementById("typing");
+
+let character = 0;
 
 function typeMessage() {
 
-    if (index < message.length) {
+    if (
+        character <
+        message.length
+    ) {
 
-        typing.innerHTML +=
-            message.charAt(index);
+        typingElement.textContent +=
+            message.charAt(character);
 
-        index++;
+        character++;
 
         setTimeout(
             typeMessage,
-            35
+            28
         );
     }
 }
+
+
+/* Start after page loads */
 
 window.addEventListener(
     "load",
@@ -135,50 +54,152 @@ window.addEventListener(
 
         setTimeout(
             typeMessage,
-            800
+            700
         );
 
     }
 );
 
 
-/* =========================
+/* =================================
    LOVE LETTER
-========================= */
+================================= */
 
-function openLetter() {
+const letterButton =
+    document.getElementById(
+        "openLetter"
+    );
 
-    const envelope =
-        document.getElementById("envelope");
+const letterCard =
+    document.getElementById(
+        "letterCard"
+    );
 
-    envelope.classList.toggle("open");
+letterButton.addEventListener(
+    "click",
+    () => {
 
-}
+        letterCard.classList.toggle(
+            "opened"
+        );
 
+        if (
+            letterCard.classList.contains(
+                "opened"
+            )
+        ) {
 
-/* =========================
-   MUSIC
-========================= */
+            letterButton.innerHTML =
+                `
+                <span>My Heart Is Open</span>
+                <span>❤️</span>
+                `;
 
-const music =
-    document.getElementById("music");
+        } else {
 
-let playing = false;
+            letterButton.innerHTML =
+                `
+                <span>Open My Heart</span>
+                <span>♥</span>
+                `;
 
-function toggleMusic() {
-
-    if (!playing) {
-
-        music.play();
-
-        playing = true;
-
-    } else {
-
-        music.pause();
-
-        playing = false;
+        }
 
     }
+);
+
+
+/* =================================
+   MUSIC
+================================= */
+
+const music =
+    document.getElementById(
+        "music"
+    );
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+let musicPlaying = false;
+
+
+musicButton.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            if (!musicPlaying) {
+
+                await music.play();
+
+                musicPlaying = true;
+
+                musicButton.textContent =
+                    "🔊";
+
+                musicButton.classList.add(
+                    "playing"
+                );
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Pause music"
+                );
+
+            } else {
+
+                music.pause();
+
+                musicPlaying = false;
+
+                musicButton.textContent =
+                    "🎵";
+
+                musicButton.classList.remove(
+                    "playing"
+                );
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play music"
+                );
 
             }
+
+        } catch (error) {
+
+            console.log(
+                "Music could not be played:",
+                error
+            );
+
+        }
+
+    }
+);
+
+
+/* =================================
+   PAUSE MUSIC WHEN TAB IS HIDDEN
+   Saves battery and resources.
+================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (
+            document.hidden &&
+            musicPlaying
+        ) {
+
+            music.pause();
+
+        }
+
+    }
+);
