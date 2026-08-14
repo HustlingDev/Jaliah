@@ -1,5 +1,5 @@
 @import url(
-    'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap'
+'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap'
 );
 
 
@@ -28,13 +28,13 @@ body {
     background:
         radial-gradient(
             circle at 50% 0%,
-            #3d000b 0%,
-            #170006 28%,
+            #42000d 0%,
+            #180006 30%,
             #070002 65%,
-            #000000 100%
+            #000 100%
         );
 
-    color: #fff;
+    color: white;
 
     font-family:
         "Cormorant Garamond",
@@ -42,356 +42,240 @@ body {
         serif;
 
     -webkit-font-smoothing: antialiased;
-
-    text-rendering: optimizeLegibility;
 }
 
 
 /* =========================
-   BACKGROUND
+   HEART BORDER
 ========================= */
 
-body::before {
-
-    content: "";
+.love-border {
 
     position: fixed;
 
     inset: 0;
+
+    width: 100%;
+    height: 100%;
 
     pointer-events: none;
 
-    background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(255, 20, 50, .07),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 0, 40, .06),
-            transparent 30%
-        );
-
-    z-index: 0;
-}
-
-
-/* =========================
-   PARTICLES
-========================= */
-
-.particles {
-
-    position: fixed;
-
-    inset: 0;
+    z-index: 50;
 
     overflow: hidden;
-
-    pointer-events: none;
-
-    z-index: 1;
 }
 
 
-/* HEARTS */
+/*
+   All hearts are restricted
+   to the boundary.
+*/
 
-.heart {
+.border-heart {
 
     position: absolute;
-
-    bottom: -50px;
 
     color: #ff2447;
 
     font-family: Arial, sans-serif;
 
-    opacity: .45;
+    font-size: 20px;
 
-    filter:
-        drop-shadow(
-            0 0 5px rgba(255, 20, 50, .5)
-        );
+    text-shadow:
+        0 0 5px #ff1735,
+        0 0 15px rgba(255, 0, 40, .8);
+
+    opacity: .7;
+
+    will-change: transform;
 
     animation:
-        floatHeart 10s linear infinite;
-
-    /*
-       Important:
-       animations only change transform
-       and opacity for better performance.
-    */
-
-    will-change: transform, opacity;
-
-    transform: translate3d(0, 0, 0);
+        borderPulse 1.8s ease-in-out infinite;
 }
 
 
-.h1 {
-    left: 5%;
-    font-size: 17px;
-    animation-delay: 0s;
-}
+/* TOP */
 
-.h2 {
-    left: 14%;
-    font-size: 25px;
-    animation-delay: -4s;
-}
-
-.h3 {
-    left: 25%;
-    font-size: 14px;
-    animation-delay: -7s;
-}
-
-.h4 {
-    left: 36%;
-    font-size: 21px;
-    animation-delay: -2s;
-}
-
-.h5 {
-    left: 48%;
-    font-size: 15px;
-    animation-delay: -6s;
-}
-
-.h6 {
-    left: 58%;
-    font-size: 28px;
-    animation-delay: -9s;
-}
-
-.h7 {
-    left: 68%;
-    font-size: 16px;
-    animation-delay: -3s;
-}
-
-.h8 {
-    left: 76%;
-    font-size: 23px;
-    animation-delay: -8s;
-}
-
-.h9 {
-    left: 85%;
-    font-size: 14px;
-    animation-delay: -5s;
-}
-
-.h10 {
-    left: 94%;
-    font-size: 26px;
-    animation-delay: -1s;
-}
-
-.h11 {
-    left: 44%;
-    font-size: 12px;
-    animation-delay: -10s;
-}
-
-.h12 {
+.b1 {
+    top: 15px;
     left: 8%;
-    font-size: 20px;
-    animation-delay: -12s;
+}
+
+.b2 {
+    top: 20px;
+    left: 35%;
+}
+
+.b3 {
+    top: 12px;
+    left: 65%;
+}
+
+.b4 {
+    top: 18px;
+    right: 7%;
 }
 
 
-@keyframes floatHeart {
+/* BOTTOM */
 
-    0% {
+.b5 {
+    bottom: 15px;
+    left: 10%;
+}
 
-        transform:
-            translate3d(
-                0,
-                20vh,
-                0
-            )
-            rotate(0deg)
-            scale(.7);
+.b6 {
+    bottom: 18px;
+    left: 40%;
+}
 
-        opacity: 0;
+.b7 {
+    bottom: 12px;
+    left: 70%;
+}
 
-    }
+.b8 {
+    bottom: 18px;
+    right: 7%;
+}
 
-    15% {
-        opacity: .5;
-    }
 
-    80% {
-        opacity: .35;
-    }
+@keyframes borderPulse {
 
+    0%,
     100% {
 
         transform:
-            translate3d(
-                30px,
-                -115vh,
-                0
-            )
-            rotate(180deg)
-            scale(1.1);
+            scale(.8)
+            rotate(-5deg);
 
-        opacity: 0;
+        opacity: .35;
+    }
+
+    50% {
+
+        transform:
+            scale(1.25)
+            rotate(5deg);
+
+        opacity: 1;
     }
 }
 
 
 /* =========================
-   PETALS
+   SUBTLE SIDE HEARTS
 ========================= */
 
-.petal {
+.love-border::before,
+.love-border::after {
+
+    content: "♥";
 
     position: absolute;
 
-    top: -30px;
+    top: 50%;
 
-    width: 9px;
-    height: 13px;
+    color: #ff2447;
 
-    background: #9e0018;
+    font-size: 20px;
 
-    border-radius:
-        100% 0 100% 0;
-
-    opacity: .35;
+    text-shadow:
+        0 0 8px #ff1735,
+        0 0 18px #ff1735;
 
     animation:
-        fallPetal 12s linear infinite;
-
-    will-change:
-        transform,
-        opacity;
+        sidePulse 2s ease-in-out infinite;
 }
 
 
-.p1 {
-    left: 12%;
-    animation-delay: -2s;
-}
+.love-border::before {
 
-.p2 {
-    left: 29%;
-    animation-delay: -8s;
-}
-
-.p3 {
-    left: 45%;
-    animation-delay: -4s;
-}
-
-.p4 {
-    left: 63%;
-    animation-delay: -10s;
-}
-
-.p5 {
-    left: 79%;
-    animation-delay: -6s;
-}
-
-.p6 {
-    left: 91%;
-    animation-delay: -12s;
+    left: 12px;
 }
 
 
-@keyframes fallPetal {
+.love-border::after {
 
-    0% {
-        transform:
-            translate3d(0, -30px, 0)
-            rotate(0deg);
-        opacity: 0;
-    }
+    right: 12px;
 
-    15% {
-        opacity: .35;
-    }
+    animation-delay: -.8s;
+}
 
+
+@keyframes sidePulse {
+
+    0%,
     100% {
-        transform:
-            translate3d(
-                70px,
-                115vh,
-                0
-            )
-            rotate(500deg);
-        opacity: 0;
+        transform: scale(.7);
+        opacity: .3;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
     }
 }
 
 
 /* =========================
-   MUSIC
+   MUSIC STATUS
 ========================= */
 
-.music-btn {
+.music-status {
 
     position: fixed;
 
     top: 18px;
     left: 18px;
 
-    width: 48px;
-    height: 48px;
+    width: 45px;
+    height: 45px;
 
     border-radius: 50%;
 
-    border:
-        1px solid rgba(255, 80, 100, .7);
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     background:
-        rgba(30, 0, 8, .85);
+        rgba(50, 0, 10, .85);
 
-    color: white;
+    border:
+        1px solid
+        rgba(255, 60, 80, .7);
 
-    font-size: 19px;
-
-    cursor: pointer;
+    color: #ff5368;
 
     z-index: 100;
 
-    box-shadow:
-        0 0 20px
-        rgba(255, 20, 50, .25);
+    font-size: 18px;
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    box-shadow:
+        0 0 15px
+        rgba(255, 0, 40, .3);
+
+    transition: .3s;
 }
 
 
-.music-btn:hover {
-
-    transform: scale(1.08);
-
-    box-shadow:
-        0 0 25px
-        rgba(255, 20, 50, .55);
-}
-
-
-.music-btn.playing {
+.music-status.playing {
 
     animation:
-        musicPulse 1.5s infinite;
+        musicGlow 1.5s infinite;
 }
 
 
-@keyframes musicPulse {
+@keyframes musicGlow {
 
     50% {
+
         box-shadow:
             0 0 30px
-            rgba(255, 20, 50, .7);
+            rgba(255, 0, 40, .8);
+
+        transform: scale(1.05);
     }
 }
 
@@ -427,15 +311,13 @@ body::before {
 
     font-size: 45px;
 
-    margin-bottom: 8px;
+    animation:
+        heartbeat 1.5s infinite;
 
     filter:
         drop-shadow(
-            0 0 15px #ff1637
+            0 0 15px #ff1735
         );
-
-    animation:
-        heartbeat 1.5s infinite;
 }
 
 
@@ -468,7 +350,8 @@ body::before {
 
 .title-line {
 
-    width: min(180px, 45vw);
+    width:
+        min(180px, 45vw);
 
     height: 1px;
 
@@ -503,15 +386,15 @@ body::before {
     font-size: 25px;
 
     animation:
-        scrollBounce 1.5s infinite;
+        bounce 1.5s infinite;
 }
 
 
-@keyframes scrollBounce {
+@keyframes bounce {
 
     50% {
         transform: translateY(8px);
-        opacity: .5;
+        opacity: .4;
     }
 }
 
@@ -540,10 +423,7 @@ body::before {
     position: relative;
 
     width:
-        min(
-            90vw,
-            510px
-        );
+        min(90vw, 510px);
 }
 
 
@@ -553,14 +433,11 @@ body::before {
 
     inset: 10%;
 
-    background: #ff1637;
+    background: #ff1737;
 
-    filter:
-        blur(70px);
+    filter: blur(70px);
 
     opacity: .18;
-
-    z-index: -1;
 }
 
 
@@ -575,7 +452,7 @@ body::before {
     background:
         linear-gradient(
             135deg,
-            #ff1637,
+            #ff1737,
             #61000d,
             #ff5368,
             #500009
@@ -616,8 +493,7 @@ body::before {
 .photo-frame:hover img {
 
     filter:
-        grayscale(20%)
-        contrast(1.05);
+        grayscale(15%);
 
     transform: scale(1.015);
 }
@@ -628,8 +504,6 @@ body::before {
     position: absolute;
 
     color: #ff294b;
-
-    font-family: Arial, sans-serif;
 
     font-size: 36px;
 
@@ -653,18 +527,16 @@ body::before {
 .heart-b {
     left: -16px;
     bottom: 50px;
-    animation-delay: -.6s;
 }
 
 .heart-c {
     right: 25px;
     bottom: -20px;
-    animation-delay: -1s;
 }
 
 
 /* =========================
-   LOVE INTRO
+   MESSAGE
 ========================= */
 
 .love-intro {
@@ -738,6 +610,8 @@ body::before {
 
     min-height: 260px;
 
+    white-space: pre-line;
+
     font-size:
         clamp(
             19px,
@@ -748,8 +622,6 @@ body::before {
     line-height: 1.75;
 
     color: #f2dadd;
-
-    white-space: pre-line;
 }
 
 
@@ -770,13 +642,11 @@ body::before {
 
 
 .side-note span {
-
     font-size: 20px;
 }
 
 
 .side-note small {
-
     font-size: 17px;
 }
 
@@ -792,10 +662,6 @@ body::before {
     font-weight: 400;
 
     color: #ff5368;
-
-    text-shadow:
-        0 0 10px
-        rgba(255, 20, 50, .5);
 }
 
 
@@ -804,8 +670,6 @@ body::before {
     color: #ff5368;
 
     font-size: 25px;
-
-    margin-top: 5px;
 }
 
 
@@ -830,13 +694,8 @@ body::before {
 
 .letter-card {
 
-    position: relative;
-
     width:
-        min(
-            94vw,
-            700px
-        );
+        min(94vw, 700px);
 
     border-radius: 22px;
 
@@ -860,8 +719,6 @@ body::before {
 
 .letter-paper {
 
-    position: relative;
-
     background:
         linear-gradient(
             135deg,
@@ -876,24 +733,6 @@ body::before {
     padding:
         50px
         clamp(25px, 6vw, 65px);
-
-    overflow: hidden;
-}
-
-
-.letter-paper::before {
-
-    content: "♥";
-
-    position: absolute;
-
-    right: 25px;
-    top: 15px;
-
-    font-size: 80px;
-
-    color:
-        rgba(170, 0, 20, .06);
 }
 
 
@@ -924,11 +763,7 @@ body::before {
         cursive;
 
     font-size:
-        clamp(
-            38px,
-            7vw,
-            55px
-        );
+        clamp(38px, 7vw, 55px);
 
     font-weight: 400;
 
@@ -943,11 +778,7 @@ body::before {
 .letter-paper p {
 
     font-size:
-        clamp(
-            17px,
-            3vw,
-            21px
-        );
+        clamp(17px, 3vw, 21px);
 
     line-height: 1.65;
 
@@ -957,11 +788,9 @@ body::before {
 
 .quote {
 
-    margin:
-        25px 0;
+    margin: 25px 0;
 
-    padding:
-        20px;
+    padding: 20px;
 
     border-left:
         3px solid #b0001c;
@@ -982,11 +811,7 @@ body::before {
         cursive;
 
     font-size:
-        clamp(
-            31px,
-            6vw,
-            42px
-        );
+        clamp(31px, 6vw, 42px);
 
     font-weight: 400;
 
@@ -1045,10 +870,6 @@ body::before {
 
     color: white;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
     font-size: 19px;
 
     font-weight: 700;
@@ -1060,8 +881,7 @@ body::before {
         rgba(150, 0, 20, .4);
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform .25s ease;
 }
 
 
@@ -1070,17 +890,6 @@ body::before {
     transform:
         translateY(-3px)
         scale(1.03);
-
-    box-shadow:
-        0 15px 35px
-        rgba(255, 0, 30, .5);
-}
-
-
-.open-button:active {
-
-    transform:
-        scale(.97);
 }
 
 
@@ -1124,11 +933,7 @@ body::before {
         cursive;
 
     font-size:
-        clamp(
-            55px,
-            10vw,
-            80px
-        );
+        clamp(55px, 10vw, 80px);
 
     font-weight: 400;
 
@@ -1140,8 +945,7 @@ body::before {
 
     max-width: 600px;
 
-    margin:
-        20px auto;
+    margin: 20px auto;
 
     font-size: 21px;
 
@@ -1156,8 +960,6 @@ body::before {
     font-size: 75px;
 
     color: #ff5368;
-
-    margin-top: 10px;
 }
 
 
@@ -1179,8 +981,7 @@ body::before {
 
     height: 1px;
 
-    margin:
-        55px auto 20px;
+    margin: 55px auto 20px;
 
     background: #ff5368;
 
@@ -1203,13 +1004,12 @@ footer strong {
 
 
 /* =========================
-   HEARTBEAT
+   ANIMATION
 ========================= */
 
 @keyframes heartbeat {
 
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
     }
 
@@ -1227,22 +1027,9 @@ footer strong {
 
     .love-intro {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         gap: 35px;
-    }
-
-    .main-message {
-        order: 1;
-    }
-
-    .left-note {
-        order: 2;
-    }
-
-    .right-note {
-        order: 3;
     }
 
     .main-message p {
@@ -1250,6 +1037,7 @@ footer strong {
     }
 
     .side-note {
+
         flex-direction: row;
 
         justify-content: center;
@@ -1267,31 +1055,26 @@ footer strong {
 
 @media (max-width: 600px) {
 
-    .music-btn {
+    .music-status {
 
         top: 12px;
         left: 12px;
 
-        width: 42px;
-        height: 42px;
-
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
     }
-
 
     .hero {
 
         min-height: 48vh;
 
-        padding-top: 80px;
+        padding-top: 75px;
     }
-
 
     .photo-section {
 
         padding-bottom: 50px;
     }
-
 
     .photo-frame {
 
@@ -1300,19 +1083,16 @@ footer strong {
         border-radius: 20px;
     }
 
-
     .photo-frame img {
 
         border-radius: 16px;
     }
-
 
     .love-intro {
 
         padding:
             55px 18px;
     }
-
 
     .main-message p {
 
@@ -1321,18 +1101,10 @@ footer strong {
         line-height: 1.7;
     }
 
-
-    .side-note {
-
-        font-size: 17px;
-    }
-
-
     .side-note strong {
 
         font-size: 31px;
     }
-
 
     .letter-section {
 
@@ -1340,19 +1112,16 @@ footer strong {
             40px 12px 70px;
     }
 
-
     .letter-paper {
 
         padding:
             35px 22px;
     }
 
-
     .letter-paper p {
 
         font-size: 17px;
     }
-
 
     .open-button {
 
@@ -1362,33 +1131,23 @@ footer strong {
             14px 24px;
     }
 
-
     .final-section {
 
         padding:
             55px 18px 35px;
     }
 
-
     .final-section > p {
 
         font-size: 18px;
     }
 
+    /* Fewer border hearts on very small screens */
 
-    /*
-       Reduce animation workload
-       on small screens.
-    */
-
-    .heart {
-
-        opacity: .25;
-
-        animation-duration: 14s;
-    }
-
-    .petal {
+    .b2,
+    .b4,
+    .b6,
+    .b8 {
 
         display: none;
     }
@@ -1410,18 +1169,6 @@ footer strong {
 
         animation-iteration-count: 1 !important;
 
-        scroll-behavior: auto !important;
-
         transition-duration: .01ms !important;
     }
-    /* Smooth letter interaction */
-.letter-card.opened .letter-paper {
-    transform: translateY(-8px);
-}
-
-.letter-card.opened {
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, .7),
-        0 0 60px rgba(255, 0, 30, .4);
-}
-}
+    }
