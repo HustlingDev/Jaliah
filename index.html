@@ -2,7 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080003"
+    >
 
     <title>Your Love ❤️</title>
 
@@ -11,166 +20,259 @@
 
 <body>
 
-    <!-- Floating background -->
-    <div id="hearts"></div>
-    <div id="petals"></div>
+    <!-- Lightweight animated background -->
+    <div class="particles" aria-hidden="true">
 
-    <!-- Music -->
-    <audio id="music" loop>
-        <source src="love-song.mp3" type="audio/mpeg">
+        <span class="heart h1">♥</span>
+        <span class="heart h2">♥</span>
+        <span class="heart h3">♥</span>
+        <span class="heart h4">♥</span>
+        <span class="heart h5">♥</span>
+        <span class="heart h6">♥</span>
+        <span class="heart h7">♥</span>
+        <span class="heart h8">♥</span>
+        <span class="heart h9">♥</span>
+        <span class="heart h10">♥</span>
+        <span class="heart h11">♥</span>
+        <span class="heart h12">♥</span>
+
+        <span class="petal p1"></span>
+        <span class="petal p2"></span>
+        <span class="petal p3"></span>
+        <span class="petal p4"></span>
+        <span class="petal p5"></span>
+        <span class="petal p6"></span>
+
+    </div>
+
+
+    <!-- Background music -->
+    <audio
+        id="music"
+        loop
+        preload="metadata"
+    >
+        <source
+            src="All of You.mp3"
+            type="audio/mpeg"
+        >
     </audio>
 
-    <button class="music-btn" onclick="toggleMusic()">
+
+    <!-- Music button -->
+    <button
+        class="music-btn"
+        id="musicButton"
+        aria-label="Play music"
+    >
         🎵
     </button>
 
-    <!-- HERO -->
-    <section class="hero">
 
-        <div class="small-heart">♥</div>
+    <!-- ================= HERO ================= -->
 
-        <h1>Your Love</h1>
+    <header class="hero">
 
-        <div class="line"></div>
-
-        <p class="subtitle">
-            To the girl who owns my heart ❤️
-        </p>
-
-    </section>
-
-
-    <!-- PHOTO -->
-    <section class="photo-section">
-
-        <div class="photo-frame">
-
-            <!-- ADD HER PHOTO HERE -->
-            <img
-                src="her-photo.jpg"
-                alt="My Love"
-            >
-
-            <div class="photo-heart heart-one">❤️</div>
-            <div class="photo-heart heart-two">💗</div>
-            <div class="photo-heart heart-three">💕</div>
-
-        </div>
-
-    </section>
-
-
-    <!-- LOVE MESSAGE -->
-    <section class="message-section">
-
-        <p class="side-message left">
-            You are my<br>
-            <span>Today</span><br>
-            and all of my<br>
-            <span>Tomorrows</span> ❤️
-        </p>
-
-        <div class="main-message">
-
-            <h2>My Love ❤️</h2>
-
-            <p id="typing"></p>
-
-        </div>
-
-        <p class="side-message right">
-            Every moment<br>
-            with you<br>
-            is my<br>
-            <span>Favorite</span><br>
-            one. ❤️
-        </p>
-
-    </section>
-
-
-    <!-- LOVE LETTER -->
-    <section class="letter-section">
-
-        <div class="envelope" id="envelope">
-
-            <div class="envelope-top"></div>
-
-            <div class="letter">
-
-                <h2>My Dearest ❤️</h2>
-
-                <p>
-                    From the moment you came into my life,
-                    something became different.
-                </p>
-
-                <p>
-                    You brought a kind of happiness into my
-                    heart that I cannot easily explain.
-                </p>
-
-                <p>
-                    I love your smile, your personality,
-                    your kindness and simply the way you are.
-                </p>
-
-                <p>
-                    Whenever I think about the beautiful
-                    moments in my life, I find you somewhere
-                    inside them.
-                </p>
-
-                <h3>
-                    I Love You More Than Words Can Say ❤️
-                </h3>
-
-                <p class="signature">
-                    — Your Love
-                </p>
-
-            </div>
-
-            <button
-                class="open-btn"
-                onclick="openLetter()"
-            >
-                Open My Heart ❤️
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- FINAL MESSAGE -->
-    <section class="final">
-
-        <div class="big-heart">
+        <div class="mini-heart">
             ❤️
         </div>
 
-        <h2>Always You.</h2>
+        <h1>Your Love</h1>
+
+        <div class="title-line"></div>
 
         <p>
-            No matter how many hearts appear on this page,
-            none of them could ever represent how much
-            love I have for you.
+            To the girl who owns my heart.
         </p>
 
-        <div class="infinity">
-            ∞
+        <div class="scroll-hint">
+            ↓
         </div>
 
-        <p class="forever">
-            Forever grateful for you.
-        </p>
+    </header>
 
-        <p class="made">
-            Made with ❤️ by <strong>Your Love</strong>
-        </p>
 
-    </section>
+    <!-- ================= PHOTO ================= -->
+
+    <main>
+
+        <section class="photo-section">
+
+            <div class="photo-wrapper">
+
+                <div class="photo-glow"></div>
+
+                <div class="photo-frame">
+
+                    <img
+                        src="love.jpg"
+                        alt="My Love"
+                        loading="eager"
+                    >
+
+                </div>
+
+                <span class="photo-heart heart-a">♥</span>
+                <span class="photo-heart heart-b">♥</span>
+                <span class="photo-heart heart-c">♥</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MESSAGE ================= -->
+
+        <section class="love-intro">
+
+            <div class="side-note left-note">
+                <span>You</span>
+                <small>are my</small>
+                <strong>Today</strong>
+                <small>and all my</small>
+                <strong>Tomorrows</strong>
+                <b>♥</b>
+            </div>
+
+
+            <div class="main-message">
+
+                <span class="eyebrow">
+                    A little something from my heart
+                </span>
+
+                <h2>
+                    My Love ❤️
+                </h2>
+
+                <p id="typing"></p>
+
+            </div>
+
+
+            <div class="side-note right-note">
+                <span>Every</span>
+                <small>moment</small>
+                <small>with you</small>
+                <small>is my</small>
+                <strong>Favorite</strong>
+                <small>one.</small>
+                <b>♥</b>
+            </div>
+
+        </section>
+
+
+        <!-- ================= LETTER ================= -->
+
+        <section class="letter-section">
+
+            <div
+                class="letter-card"
+                id="letterCard"
+            >
+
+                <div class="letter-glow"></div>
+
+                <div class="letter-paper">
+
+                    <div class="letter-top">
+                        <span>♥</span>
+                        <span>For You</span>
+                        <span>♥</span>
+                    </div>
+
+                    <h2>
+                        My Dearest ❤️
+                    </h2>
+
+                    <p>
+                        From the moment you came into my life,
+                        something became different.
+                    </p>
+
+                    <p>
+                        You brought a kind of happiness into
+                        my heart that words can hardly explain.
+                    </p>
+
+                    <p>
+                        I love your smile, your kindness,
+                        your personality, and the little things
+                        that make you uniquely you.
+                    </p>
+
+                    <p>
+                        Whenever I think about the beautiful
+                        moments in my life, I find you somewhere
+                        inside them.
+                    </p>
+
+                    <div class="quote">
+                        "You are one of the most beautiful
+                        chapters of my story."
+                    </div>
+
+                    <h3>
+                        I Love You More Than Words Can Say
+                    </h3>
+
+                    <p class="signature">
+                        — Your Love Mathew ❤️
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="open-button"
+                    id="openLetter"
+                >
+                    <span>Open My Heart</span>
+                    <span>♥</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINAL ================= -->
+
+        <section class="final-section">
+
+            <div class="final-heart">
+                ♥
+            </div>
+
+            <h2>
+                Always You.
+            </h2>
+
+            <p>
+                No matter how many hearts appear on this page,
+                none of them could ever represent how much
+                love I have for you.
+            </p>
+
+            <div class="infinity">
+                ∞
+            </div>
+
+            <p class="forever">
+                Forever grateful for you.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <footer>
+                Made with ❤️ by
+                <strong>Your Love Mathew</strong>
+            </footer>
+
+        </section>
+
+    </main>
 
 
     <script src="script.js"></script>
