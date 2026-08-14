@@ -3,73 +3,62 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="theme-color"
-        content="#080003"
-    >
+    <meta name="theme-color" content="#050001">
 
-    <title>Your Love ❤️</title>
+    <title>Your Love Mathew ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Lightweight animated background -->
-    <div class="particles" aria-hidden="true">
+    <!-- =================================
+         ROMANTIC BORDER
+    ================================== -->
 
-        <span class="heart h1">♥</span>
-        <span class="heart h2">♥</span>
-        <span class="heart h3">♥</span>
-        <span class="heart h4">♥</span>
-        <span class="heart h5">♥</span>
-        <span class="heart h6">♥</span>
-        <span class="heart h7">♥</span>
-        <span class="heart h8">♥</span>
-        <span class="heart h9">♥</span>
-        <span class="heart h10">♥</span>
-        <span class="heart h11">♥</span>
-        <span class="heart h12">♥</span>
+    <div class="love-border" aria-hidden="true">
 
-        <span class="petal p1"></span>
-        <span class="petal p2"></span>
-        <span class="petal p3"></span>
-        <span class="petal p4"></span>
-        <span class="petal p5"></span>
-        <span class="petal p6"></span>
+        <div class="border-heart b1">♥</div>
+        <div class="border-heart b2">♥</div>
+        <div class="border-heart b3">♥</div>
+        <div class="border-heart b4">♥</div>
+        <div class="border-heart b5">♥</div>
+        <div class="border-heart b6">♥</div>
+        <div class="border-heart b7">♥</div>
+        <div class="border-heart b8">♥</div>
 
     </div>
 
 
-    <!-- Background music -->
+    <!-- =================================
+         BACKGROUND MUSIC
+
+         IMPORTANT:
+         The filename must be EXACTLY:
+         All of You.mp3
+    ================================== -->
+
     <audio
-        id="music"
+        id="backgroundMusic"
+        src="All%20of%20You.mp3"
         loop
-        preload="metadata"
-    >
-        <source
-            src="All of You.mp3"
-            type="audio/mpeg"
-        >
+        preload="auto"
+        playsinline>
     </audio>
 
 
-    <!-- Music button -->
-    <button
-        class="music-btn"
-        id="musicButton"
-        aria-label="Play music"
-    >
-        🎵
-    </button>
+    <!-- Music status -->
+    <div id="musicStatus" class="music-status">
+        ♫
+    </div>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- =================================
+         HERO
+    ================================== -->
 
     <header class="hero">
 
@@ -77,7 +66,9 @@
             ❤️
         </div>
 
-        <h1>Your Love</h1>
+        <h1>
+            Your Love
+        </h1>
 
         <div class="title-line"></div>
 
@@ -92,9 +83,11 @@
     </header>
 
 
-    <!-- ================= PHOTO ================= -->
-
     <main>
+
+        <!-- =================================
+             PHOTO
+        ================================== -->
 
         <section class="photo-section">
 
@@ -107,31 +100,47 @@
                     <img
                         src="love.jpg"
                         alt="My Love"
-                        loading="eager"
                     >
 
                 </div>
 
-                <span class="photo-heart heart-a">♥</span>
-                <span class="photo-heart heart-b">♥</span>
-                <span class="photo-heart heart-c">♥</span>
+                <span class="photo-heart heart-a">
+                    ♥
+                </span>
+
+                <span class="photo-heart heart-b">
+                    ♥
+                </span>
+
+                <span class="photo-heart heart-c">
+                    ♥
+                </span>
 
             </div>
 
         </section>
 
 
-        <!-- ================= MESSAGE ================= -->
+        <!-- =================================
+             LOVE MESSAGE
+        ================================== -->
 
         <section class="love-intro">
 
-            <div class="side-note left-note">
+            <div class="side-note">
+
                 <span>You</span>
+
                 <small>are my</small>
+
                 <strong>Today</strong>
+
                 <small>and all my</small>
+
                 <strong>Tomorrows</strong>
+
                 <b>♥</b>
+
             </div>
 
 
@@ -150,29 +159,34 @@
             </div>
 
 
-            <div class="side-note right-note">
+            <div class="side-note">
+
                 <span>Every</span>
+
                 <small>moment</small>
+
                 <small>with you</small>
+
                 <small>is my</small>
+
                 <strong>Favorite</strong>
+
                 <small>one.</small>
+
                 <b>♥</b>
+
             </div>
 
         </section>
 
 
-        <!-- ================= LETTER ================= -->
+        <!-- =================================
+             LOVE LETTER
+        ================================== -->
 
         <section class="letter-section">
 
-            <div
-                class="letter-card"
-                id="letterCard"
-            >
-
-                <div class="letter-glow"></div>
+            <div class="letter-card">
 
                 <div class="letter-paper">
 
@@ -182,25 +196,30 @@
                         <span>♥</span>
                     </div>
 
+
                     <h2>
                         My Dearest ❤️
                     </h2>
+
 
                     <p>
                         From the moment you came into my life,
                         something became different.
                     </p>
 
+
                     <p>
                         You brought a kind of happiness into
                         my heart that words can hardly explain.
                     </p>
 
+
                     <p>
                         I love your smile, your kindness,
-                        your personality, and the little things
-                        that make you uniquely you.
+                        your personality, and all those little
+                        things that make you uniquely you.
                     </p>
+
 
                     <p>
                         Whenever I think about the beautiful
@@ -208,28 +227,34 @@
                         inside them.
                     </p>
 
+
                     <div class="quote">
+
                         "You are one of the most beautiful
                         chapters of my story."
+
                     </div>
 
+
                     <h3>
-                        I Love You More Than Words Can Say
+                        I Love You More Than Words Can Say ❤️
                     </h3>
 
+
                     <p class="signature">
-                        — Your Love Mathew ❤️
+                        — Your Love Mathew
                     </p>
 
                 </div>
 
 
                 <button
-                    class="open-button"
                     id="openLetter"
-                >
-                    <span>Open My Heart</span>
+                    class="open-button">
+
+                    Open My Heart
                     <span>♥</span>
+
                 </button>
 
             </div>
@@ -237,7 +262,9 @@
         </section>
 
 
-        <!-- ================= FINAL ================= -->
+        <!-- =================================
+             FINAL
+        ================================== -->
 
         <section class="final-section">
 
@@ -250,9 +277,9 @@
             </h2>
 
             <p>
-                No matter how many hearts appear on this page,
-                none of them could ever represent how much
-                love I have for you.
+                No matter how many hearts appear around
+                this page, none of them could ever represent
+                how much love I have for you.
             </p>
 
             <div class="infinity">
